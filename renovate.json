@@ -1,13 +1,14 @@
 {
-  "extends": [ "config:base"],
+  "extends": ["config:base"],
   "packageRules": [
     {
       "enabled": false,
-      "matchPackagePatterns": ["npm"]
+      "matchManagers": ["npm"],
+      "matchPackagePatterns": ["*"],
+      "separateMajorMinor": false
     }
   ],
   "vulnerabilityAlerts": {
     "enabled": true
-  },
-  "osvVulnerabilityAlerts": true
+  }
 }
