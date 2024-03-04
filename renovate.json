@@ -1,6 +1,13 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:recommended"
+  "enabledManagers": ["npm"],
+  "packageRules": [
+    {
+      "matchDatasources": ["npm"],
+      "vulnerabilityAlerts": true,
+      "commitMessagePrefix": "Security fix",
+      "labels": ["security"],
+      "groupName": "security-updates"
+    }
   ]
 }
