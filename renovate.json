@@ -1,28 +1,5 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "dependencyDashboard": true,
-  "enabledManagers": ["custom.regex", "docker-compose", "dockerfile", "helmfile", "maven", "gomod","pipenv"],
-  "pinDigests": true,
-  "packageRules": [
-    {
-      "matchDatasources": ["docker"],
-      "labels": ["docker-update"]
-    },
-    {
-      "matchManagers": ["gomod"],
-      "groupName": "{{parentDir}}",
-      "matchPackagePatterns": [".*"]
-    },
-    {
-      "matchManagers": ["pipenv"],
-      "groupName": "{{parentDir}}",
-      "matchPackagePatterns": [".*"]
-    }
-  ],
-  "reviewersFromCodeOwners": true,
-  "vulnerabilityAlerts": {
-    "enabled": true,
-    "labels": ["security-update"],
-    "commitMessageSuffix": "`security-update`"
-  }
+  "enabledManagers": ["helm-requirements", "helm-values", "helmfile", "helmsman", "helmv3"]
 }
