@@ -1,0 +1,25 @@
+# format <port>: <internal database address>
+databases: []
+# "6001": "database"
+
+publicDns:
+securityGroups: []
+
+nameOverride: ""
+fullnameOverride: ""
+
+image:
+  repository: envoyproxy/envoy
+  tag: v1.11.2
+  pullPolicy: IfNotPresent
+
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+nodeSelector:
+  role: infra-node
