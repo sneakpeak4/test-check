@@ -10,7 +10,7 @@ fullnameOverride: ""
 
 image:
   repository: envoyproxy/envoy
-  tag: v1.11.2
+  tag: v1.29.2
   pullPolicy: IfNotPresent
 
 resources:
