@@ -2,5 +2,5 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["mergeConfidence:all-badges"],
   "dependencyDashboard": true,
-  "enabledManagers": [ "helmfile","helm-values"]
+  "enabledManagers": [ "helmfile","helm-values","npm"]
 }
