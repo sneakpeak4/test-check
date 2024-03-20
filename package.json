@@ -1,52 +1,71 @@
 {
-  "name": "npmlint",
-  "version": "0.1.0",
-  "description": "Lint your npm package",
-  "license": "MIT",
-  "repository": "sindresorhus/npmlint",
-  "author": {
-    "name": "Sindre Sorhus",
-    "email": "sindresorhus@gmail.com",
-    "url": "sindresorhus.com"
+  "name": "npm-fzf",
+  "version": "0.0.0-semantically-released",
+  "description": "Fuzzy search npm package with fzf",
+  "main": "./bin/cli.js",
+  "bin": {
+    "npf": "./bin/cli.js"
   },
   "engines": {
-    "node": ">=4"
+    "node": ">=8"
   },
   "scripts": {
-    "test": "xo && ava"
+    "test": "npm-run-all jest eslint --parallel --silent",
+    "jest": "jest --forceExit --detectOpenHandles",
+    "eslint": "eslint . --ignore-path .gitignore --cache --cache-location \"./eslint/.eslintcache\" ",
+    "eslint:makeHtml": "npm run eslint -- --format html -o ./eslint/report.html",
+    "eslint:open": "npm run eslint:makeHtml --silent && opn ./eslint/report.html",
+    "watch": "nodemon --exec npm run test",
+    "commit": "git-cz",
+    "semantic-release": "semantic-release"
   },
-  "files": [
-    "index.js",
-    "cli.js",
-    "get-reporter.js",
-    "rules",
-    "reporters"
-  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hankchanocd/npm-fzf.git"
+  },
   "keywords": [
+    "npf",
     "npm",
-    "lint",
-    "linter",
-    "validate",
-    "report",
-    "check",
-    "package",
-    "json",
-    "module"
+    "fzf",
+    "search"
   ],
+  "files": [
+    "src/",
+    "bin/",
+    "README.md"
+  ],
+  "author": "Hank Chan <hankchan@cubesole.ai> (https://github.com/hankchanocd)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hankchanocd/npm-fzf/issues"
+  },
+  "homepage": "https://github.com/hankchanocd/npm-fzf#readme",
   "dependencies": {
-    "async": "^0.2.9",
-    "chalk": "^1.1.1",
-    "findup-sync": "^0.1.2",
-    "glob": "^3.2.7",
-    "meow": "^3.6.0",
-    "resolve": "^0.5.1",
-    "semver": "^5.1.0",
-    "sudo-block": "^1.2.0",
-    "update-notifier": "^0.5.0",
-    "yamlish": "0.0.7"
+    "@hankchanocd/npmlist": "^8.0.2",
+    "command-exists": "^1.2.8",
+    "es6-promisify": "^6.0.2",
+    "node-fzf": "^0.2.1"
   },
   "devDependencies": {
-    "ava": "*",
-    "xo": "*"
+    "commitizen": "^3.1.2",
+    "cz-conventional-changelog": "^2.1.0",
+    "eslint": "^5.16.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jest": "^22.21.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "ghooks": "^2.0.4",
+    "jest": "^24.9.0",
+    "nodemon": "^1.19.4",
+    "npm-run-all": "^4.1.5",
+    "opn-cli": "^4.1.0",
+    "semantic-release": "^15.14.0"
+  },
+  "config": {
+    "ghooks": {
+      "pre-push": "npm run test"
+    },
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
   }
 }
