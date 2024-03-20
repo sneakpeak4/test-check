@@ -4,6 +4,7 @@
     "packagePatterns": ["*"],
     "enabled": false
   }],
+  "transitiveRemediation": true
   "vulnerabilityAlerts": {
     "enabled": true
   }
